@@ -24,12 +24,13 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
     }
     const onFormSumit = (event) => {
         event.preventDefault()
-        var obj = todos.findIndex(obj => obj.title === input)
-        if (obj == 0) return toast.warning("You are add duplicate value!")
+        var checkDuplicate = todos.find(obj => obj.title === input)
         if (!editTodo) {
+            if (checkDuplicate != null) return toast.warning("You are add duplicate value!")
             setTodos([...todos, { id: uuidv4(), title: input }])
             setInput("")
         } else {
+            if (checkDuplicate != null) return toast.warning("You can't update duplicate value!")
             updateTodo(input, editTodo.id, editTodo.completed)
         }
     }
@@ -38,7 +39,6 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
             <input
                 className="list"
                 type="text"
-                autoFocus
                 placeholder="Enter a Todo..."
                 className="task-input"
                 value={input}

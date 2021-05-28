@@ -11,7 +11,7 @@ const ToDosList = ({ todos, setTodos, setEditTodo }) => {
     const handleComplete = (todo) => {
         setEditTodo(todo)
     }
-    return <div>
+    return <div className="card col-12 col-lg-4 login-card mt-2 hv-center">
         <ul> {
             todos.length === 0 ? <li className="list-item" > <label
                 className="list lsit-item"
@@ -21,7 +21,6 @@ const ToDosList = ({ todos, setTodos, setEditTodo }) => {
                 <li className="list-item" >
                     <input
                         type="text"
-
                         value={todo.title}
                         className="list"
                         onChange={(event) => event.preventDefault()}
