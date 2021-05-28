@@ -13,10 +13,10 @@ const ToDosList = ({ todos, setTodos, setEditTodo }) => {
     }
     return <div className="card col-12 col-lg-4 login-card mt-2 hv-center">
         <ul> {
-            todos.length === 0 ? <li className="list-item" > <label
+            todos.length === 0 ? <li className="list-empty-data" > <label
                 className="list"
                 onChange={(event) => event.preventDefault()}
-            >Empty</label> </li> : todos.map((todo) => (
+            >Data Is Empty</label> </li> : todos.map((todo) => (
 
                 <li className="list-item" >
                     <input
