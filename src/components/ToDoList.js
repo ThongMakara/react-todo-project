@@ -21,6 +21,12 @@ const ToDosList = ({ todos, setTodos, setEditTodo }) => {
                 <li className="list-item" >
                     <input
                         type="text"
+                        value={todo.id}
+                        className="list"
+                        onChange={(event) => event.preventDefault()}
+                    />
+                    <input
+                        type="text"
                         value={todo.title}
                         className="list"
                         onChange={(event) => event.preventDefault()}

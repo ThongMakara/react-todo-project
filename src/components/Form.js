@@ -1,14 +1,16 @@
 import React, { useEffect, useRef } from 'react'
-import { v4 as uuidv4 } from 'uuid'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
 toast.configure()
+var autoId = 1;
 const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
     const inputRef = useRef();
+
     const onInputChange = (event) => {
         setInput(event.target.value)
     }
+
     useEffect(() => {
         if (editTodo) {
             setInput(editTodo.title)
@@ -30,7 +32,7 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
         var checkDuplicate = todos.find(obj => obj.title === input)
         if (!editTodo) {
             if (checkDuplicate != null) return toast.warning("You are add duplicate value!")
-            setTodos([...todos, { id: uuidv4(), title: input }])
+            setTodos([...todos, { id: autoId++, title: input }])
             setInput("")
         } else {
             if (checkDuplicate != null) return toast.warning("You can't update duplicate value!")
@@ -44,7 +46,7 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
                 className="list"
                 type="text"
                 ref={inputRef}
-                placeholder="Enter a Todo..."
+                placeholder="Please Input ToDo..."
                 className="task-input"
                 value={input}
                 required
