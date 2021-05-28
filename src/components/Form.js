@@ -31,12 +31,12 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
         var checkDuplicate = todos.find(obj => obj.title === input.trim())
         if (!editTodo) {
             if (input.trim() === "") return toast.error("Can't Add New Value By Null Or Empty!")
-            if (checkDuplicate != null) return toast.warning("You can't added duplicate value!")
+            if (checkDuplicate != null) return toast.warning("Can't added duplicate value!")
             setTodos([...todos, { id: autoId++, title: input.trim() }])
             setInput("")
         } else {
             if (input.trim() === "") return toast.error("Can't Update Value By Null Or Empty!")
-            if (checkDuplicate != null) return toast.warning("You can't update duplicate value!")
+            if (checkDuplicate != null) return toast.warning("Can't update duplicate value!")
             updateTodo(input.trim(), editTodo.id, editTodo.completed)
         }
     }
