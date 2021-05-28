@@ -31,7 +31,7 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
         var checkDuplicate = todos.find(obj => obj.title === input.trim())
         if (!editTodo) {
             if (input.trim() === "") return toast.error("Can't Add New Value By Null Or Empty!")
-            if (checkDuplicate != null) return toast.warning("You are add duplicate value!")
+            if (checkDuplicate != null) return toast.warning("You added duplicate value!")
             setTodos([...todos, { id: autoId++, title: input.trim() }])
             setInput("")
         } else {
