@@ -6,10 +6,7 @@ toast.configure()
 var autoId = 1;
 const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
     const inputRef = useRef();
-
-    const onInputChange = (event) => {
-        setInput(event.target.value)
-    }
+    const onInputChange = (event) => setInput(event.target.value)
 
     useEffect(() => {
         if (editTodo) {

@@ -6,17 +6,18 @@ const ToDosList = ({ todos, setTodos, setEditTodo }) => {
 
     const removeTodo = ({ id }) => {
         setTodos(todos.filter((todo) => todo.id !== id))
+        setEditTodo("")
     }
 
-    const handleComplete = (todo) => {
-        setEditTodo(todo)
-    }
+
+    const handleComplete = (todo) => setEditTodo(todo)
+
     return <div className="card col-12 col-lg-4 login-card mt-2 hv-center">
         <ul> {
             todos.length === 0 ? <li className="list-empty-data" > <label
                 className="list"
                 onChange={(event) => event.preventDefault()}
-            >Data Is Empty</label> </li> : todos.map((todo) => (
+            >Empty</label> </li> : todos.map((todo) => (
 
                 <li className="list-item" >
                     <input
@@ -31,8 +32,10 @@ const ToDosList = ({ todos, setTodos, setEditTodo }) => {
                         className="list"
                         onChange={(event) => event.preventDefault()}
                     />
-                    <div >
+                    <div>
+
                         <RiCloseCircleLine
+                            style={{ marginRight: '10' }}
                             onClick={() => removeTodo(todo)}
                             className='delete-icon'
                             size="30"
@@ -40,7 +43,8 @@ const ToDosList = ({ todos, setTodos, setEditTodo }) => {
                         <TiEdit
                             onClick={() => handleComplete(todo)}
                             className='edit-icon'
-                            size="30"
+                            size="35"
+                            style={{ marginLeft: '10' }}
                             color='white'
                         />
                     </div>

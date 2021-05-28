@@ -96,13 +96,14 @@ margin-right: 10px;
   }
 
   .list {
-    width: 190px;
+    width: 150px;
     background-color: #12343b;
     border: none;
     color: #ccc;
     font-size: 20px;
     padding-left: 10px;
     max-height: 30px;
+    margin-top: 4px;
     margin-right: 25px;
   }
   .list-v {
@@ -112,6 +113,7 @@ margin-right: 10px;
     color: #ccc;
     font-size: 20px;
     max-height: 30px;
+    margin-top: 4px;
     padding-left: 10px;
     margin-right: 25px;
   }
