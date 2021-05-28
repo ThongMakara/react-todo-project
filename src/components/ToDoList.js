@@ -14,7 +14,7 @@ const ToDosList = ({ todos, setTodos, setEditTodo }) => {
     return <div className="card col-12 col-lg-4 login-card mt-2 hv-center">
         <ul> {
             todos.length === 0 ? <li className="list-item" > <label
-                className="list lsit-item"
+                className="list"
                 onChange={(event) => event.preventDefault()}
             >Empty</label> </li> : todos.map((todo) => (
 
@@ -22,7 +22,7 @@ const ToDosList = ({ todos, setTodos, setEditTodo }) => {
                     <input
                         type="text"
                         value={todo.id}
-                        className="list"
+                        className="list-v"
                         onChange={(event) => event.preventDefault()}
                     />
                     <input
