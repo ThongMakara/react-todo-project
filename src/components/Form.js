@@ -50,7 +50,6 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
                 placeholder="Please Input ToDo..."
                 className="task-input"
                 value={input}
-                required
                 autoFocus
                 onChange={onInputChange} />
         </form>
