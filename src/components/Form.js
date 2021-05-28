@@ -20,26 +20,27 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
         }
     }, [setInput, editTodo])
 
-
     const updateTodo = (title, id) => {
-
         const newTodo = todos.map((todo) => todo.id === id ? { title, id } : todo)
         setTodos(newTodo)
         setEditTodo("")
     }
+
     const onFormSumit = (event) => {
         event.preventDefault()
-        var checkDuplicate = todos.find(obj => obj.title === input)
+        var checkDuplicate = todos.find(obj => obj.title === input.trim())
         if (!editTodo) {
+            if (input.trim() === "") return toast.error("Can't Add New Value By Null Or Empty!")
             if (checkDuplicate != null) return toast.warning("You are add duplicate value!")
-            setTodos([...todos, { id: autoId++, title: input }])
+            setTodos([...todos, { id: autoId++, title: input.trim() }])
             setInput("")
         } else {
+            if (input.trim() === "") return toast.error("Can't Update Value By Null Or Empty!")
             if (checkDuplicate != null) return toast.warning("You can't update duplicate value!")
-
-            updateTodo(input, editTodo.id, editTodo.completed)
+            updateTodo(input.trim(), editTodo.id, editTodo.completed)
         }
     }
+
     return (
         <form onSubmit={onFormSumit}>
             <input
