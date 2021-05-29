@@ -10,7 +10,7 @@ const ToDosList = ({ todos, setTodos, setEditTodo }) => {
     }
 
 
-    const handleComplete = (todo) => setEditTodo(todo)
+    const handleEditTodo = (todo) => setEditTodo(todo)
 
     return <div className="card col-12 col-lg-4 login-card mt-2 hv-center">
         <ul> {
@@ -35,15 +35,15 @@ const ToDosList = ({ todos, setTodos, setEditTodo }) => {
                     <div>
 
                         <RiCloseCircleLine
-                            style={{ marginRight: '10' }}
+                            style={{ marginRight: '20' }}
                             onClick={() => removeTodo(todo)}
                             className='delete-icon'
                             size="30"
                             color='white' />
                         <TiEdit
-                            onClick={() => handleComplete(todo)}
+                            onClick={() => handleEditTodo(todo)}
                             className='edit-icon'
-                            size="35"
+                            size="30"
                             style={{ marginLeft: '10' }}
                             color='white'
                         />
