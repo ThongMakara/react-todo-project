@@ -18,8 +18,8 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
     }, [setInput, editTodo])
 
     const updateTodo = (title, id) => {
-        const newTodo = todos.map((todo) => todo.id === id ? { title, id } : todo)
-        setTodos(newTodo)
+        const _updateTodo = todos.map((todo) => todo.id === id ? { title, id } : todo)
+        setTodos(_updateTodo)
         setEditTodo("")
     }
 
@@ -34,7 +34,7 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
         } else {
             if (input.trim() === "") return toast.error("Can't Update Value By Null Or Empty!")
             if (checkDuplicate != null) return toast.warning("Can't update duplicate value!")
-            updateTodo(input.trim(), editTodo.id, editTodo.completed)
+            updateTodo(input.trim(), editTodo.id)
         }
     }
 
